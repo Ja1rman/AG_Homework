@@ -26,16 +26,9 @@ int main() {
         for (int i = 0; i < k; i++)
             arr[i] = 1;
 
-        for (int i = 1; i <= sqrt(k); i++)
-        {
-            int j = i + i + 2;
-            while (j < k + 2)
-            {
-                arr[j - 1] = 0;
-                j += i + 1;
-            }
-        }
-
+        for (int i = 2; i < sqrt(k); i++)
+            for (int j = i + i - 1; j < k; j += i)
+                arr[j] = 0;
 
         int i = 3;
         int p = 0;
