@@ -1,32 +1,45 @@
 /*
-Напишите программу перебирающую все перестановки массива букв в лексикографическом порядке.
-Программа должна работать не более чем за O(n!*n) шагов.
+ГЌГ ГЇГЁГёГЁГІГҐ ГЇГ°Г®ГЈГ°Г Г¬Г¬Гі ГЇГҐГ°ГҐГЎГЁГ°Г ГѕГ№ГіГѕ ГўГ±ГҐ ГЇГҐГ°ГҐГ±ГІГ Г­Г®ГўГЄГЁ Г¬Г Г±Г±ГЁГўГ  ГЎГіГЄГў Гў Г«ГҐГЄГ±ГЁГЄГ®ГЈГ°Г ГґГЁГ·ГҐГ±ГЄГ®Г¬ ГЇГ®Г°ГїГ¤ГЄГҐ.
+ГЏГ°Г®ГЈГ°Г Г¬Г¬Г  Г¤Г®Г«Г¦Г­Г  Г°Г ГЎГ®ГІГ ГІГј Г­ГҐ ГЎГ®Г«ГҐГҐ Г·ГҐГ¬ Г§Г  O(n!*n) ГёГ ГЈГ®Гў.
 */
 
 #include <iostream>
+#include <iterator>
 
 using namespace std;
 
-int main()
+void func(int n, char* arr)
 {
-   char arr[] = "sgfedcba";
-   int size = sizeof(arr) / sizeof(arr[0]) - 1;
-
-   for (int i = 0; i < size - 1; i++)
-      for (int j = 0; j < size - i - 1; j++)
-         if (arr[j] > arr[j + 1])
+    for (int i = 0; i < n - 1; i++) 
+      for (int j = 0; j < n - i - 1; j++) 
+         if (arr[j] > arr[j + 1]) 
          {
             char temp = arr[j];
             arr[j] = arr[j + 1];
             arr[j + 1] = temp;
-         }
+         }  
+}
 
-   for (int i = 0; i < size; i++)
-      cout << arr[i] << " ";
-
+int main()
+{
+    char* arr = new char;
+    
+    cout << "Enter letters without spaces" << endl;
+    
+    cin.getline(arr, size_t(arr));
+    
+    int n = sizeof(arr) / sizeof(arr[0]);
+    
+    func(n, arr);
+   
+    for (int i = 0; i < n; i++)
+       cout << arr[i];
+   
+    delete [] arr;
+   
    return 0;
 }
 
 /*
-Пользуемся методом сортировки "Пузырёк"
+ГЏГ®Г«ГјГ§ГіГҐГ¬Г±Гї Г¬ГҐГІГ®Г¤Г®Г¬ Г±Г®Г°ГІГЁГ°Г®ГўГЄГЁ "ГЏГіГ§Г»Г°ВёГЄ"
 */
