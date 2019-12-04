@@ -21,7 +21,7 @@ int main()
     k--;
     nth_element( arr.begin(), arr.begin() + k, arr.end() );
     
-        cout << arr[k];
+    cout << arr[k];
 
     return 0;
 }
