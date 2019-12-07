@@ -6,7 +6,7 @@
 
 using namespace std;
 
-double function(int a, int b, int c, int d)
+double function(double a, double b, double c, double d)
 {
     double n0 = -1000;
     double nn = 1000;
@@ -31,7 +31,7 @@ int main()
 {
     cout << "Enter a, b, c, d, if f(x) = a*X^3 + b*X^2 + c*X + d" << endl << endl;
     
-    int a, b, c, d;
+    double a, b, c, d;
     cin >> a >> b >> c >> d;
     
     double p = function(a, b, c, d);
