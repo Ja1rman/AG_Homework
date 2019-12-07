@@ -11,7 +11,6 @@ int function(int a, int b, int c, int d)
     double n0 = -1000;
     double nn = 1000;
 
-
     double x;
 
     while (n0 < nn)
