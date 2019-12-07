@@ -1,82 +1,45 @@
+//X^3-3X^2+3X-1
+
 #include <iostream>
+#include <cmath>
+#include <string>
 
 using namespace std;
 
-void Merge(int *arr, int n0, int nn, int p)
+double function(int a, int b, int c, int d)
 {
-    int mas[p + 1];
-    int m = (n0 + nn) / 2;
-    int start = n0;
-    int final = m + 1;
-    
-    for(int j = n0; j <= nn; j++)
-        if (start <= m && (final > nn || arr[start] < arr[final]))
-        {
-            mas[j] = arr[start];
-            start++;
-        }
-        else
-        {
-            mas[j] = arr[final];
-            final++;
-        }
+    double n0 = -1000;
+    double nn = 1000;
         
-    for (int j = n0; j <= nn; j++) 
-        arr[j] = mas[j];
-}
- 
-void MergeSort(int* arr, int n0, int nn, int p)
-{
-    if (n0 < nn)
-    {
-        MergeSort(arr, n0, (n0 + nn) / 2, p);
-        MergeSort(arr, (n0 + nn) / 2 + 1, nn, p);
-        Merge(arr, n0, nn, p);
-    }
-}
-
-int res(int* arr, int nn, int k)
-{
-    int n0 = 1;
-
-    int i;
+    double x;
 
     while (n0 < nn)
     {
-        i = (n0 + nn) / 2;
-        if (k > arr[i])
-            n0 = i;
-        else if (k < arr[i])
-            nn = i;
-        else if (k == arr[i])
-            return 1;
+        x = (n0 + nn) / 2;
+        if (abs(a * pow(x, 3) + b * pow(x, 2) + c * x + d) < 0.000001)
+            return x;
+        else if (0.000001 < a * pow(x, 3) + b * pow(x, 2) + c * x + d)
+            nn = x;
+        else if (0.000001 > a * pow(x, 3) + b * pow(x, 2) + c * x + d)
+            n0 = x;
     }
-    return 2;
+
+    return -1000;
 }
 
 int main()
 {
-    int n;
-    cin >> n;
-
-    int* arr = new int[n + 1];
-    for (int i = 1; i <= n; i++)
-        cin >> arr[i];
-
-    int k1, k2;
-    cin >> k1 >> k2;
-
-    MergeSort(arr, 1, n, n);
+    cout << "Enter a, b, c, d, if f(x) = a*X^3 + b*X^2 + c*X + d" << endl << endl;
     
-    int p1 = res(arr, n++, k1);
-    int p2 = res(arr, n++, k2);
-
-    if (p1 == 1 && p2 == 1)
-        cout << "YES";
+    int a, b, c, d;
+    cin >> a >> b >> c >> d;
+    
+    double p = function(a, b, c, d);
+    
+    if (p == -1000)
+        cout << "x not included in [-1000; 1000]";
     else
-        cout << "NO";
-        
-    delete [] arr;
-
+        cout << p;    
+    
     return 0;
 }
