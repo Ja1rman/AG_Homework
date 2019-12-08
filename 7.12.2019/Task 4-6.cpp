@@ -22,6 +22,7 @@ using namespace std;
 struct LongInt
 {
     int n;
+    char* arr;
     
     LongInt(char* a, int b)
     {
@@ -33,7 +34,10 @@ struct LongInt
     
     LongInt(LongInt &X)
     {
-        
+        n = X.n;
+        char* arr = new char[n];
+        for (int i; i < n; i++)
+            arr[i] = X.arr[i];
     }
     
     ~LongInt()
@@ -41,6 +45,36 @@ struct LongInt
         delete [] arr;
     }
 
+};
+
+LongInt operator+ (LongInt a, LongInt b)
+{
+    
+};
+
+LongInt operator- (LongInt a, LongInt b)
+{
+    
+};
+
+LongInt operator* (LongInt a, LongInt b)
+{
+    
+};
+
+LongInt operator/ (LongInt a, LongInt b)
+{
+    
+};
+
+LongInt operator% (LongInt a, LongInt b)
+{
+    
+};
+
+LongInt operator^ (LongInt a, LongInt b)
+{
+    
 };
 
 int main()
@@ -69,5 +103,5 @@ int main()
     delete [] arr;
     delete [] arr2;
     
-    return 0;
+    return 0; 
 }
