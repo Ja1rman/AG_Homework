@@ -1,16 +1,16 @@
 /*
-Ğåàëèçóéòå ñòğóêòóğó LongInt, ïîçâîëÿşùóş èñïîëüçîâàòü äëèííûå íàòóğàëüíûå ÷èñëà,
-à òàêæå ïğèìåğ èñïîëüçîâàíèÿ.
-Ğåàëèçîâàòü:
-êîíñòğóêòîğû
-êîíñòğóêòîğ êîïèé
-äåñòğóêòîğ
-îïåğàòîğû >>,<< - ââîä/âûâîä
-ñëîæåíèå, âû÷èòàíèå
-óìíîæåíèå (Êàğàöóáà)
-äåëåíèå, âçÿòèå îñòàòêà (íàïğèìåğ, áèñåêöèåé)
-âîçâåäåíèå â ñòåïåíü
-…
+Ğ ĞµĞ°Ğ»Ğ¸Ğ·ÑƒĞ¹Ñ‚Ğµ ÑÑ‚Ñ€ÑƒĞºÑ‚ÑƒÑ€Ñƒ LongInt, Ğ¿Ğ¾Ğ·Ğ²Ğ¾Ğ»ÑÑÑ‰ÑƒÑ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ñ‚ÑŒ Ğ´Ğ»Ğ¸Ğ½Ğ½Ñ‹Ğµ Ğ½Ğ°Ñ‚ÑƒÑ€Ğ°Ğ»ÑŒĞ½Ñ‹Ğµ Ñ‡Ğ¸ÑĞ»Ğ°, 
+Ğ° Ñ‚Ğ°ĞºĞ¶Ğµ Ğ¿Ñ€Ğ¸Ğ¼ĞµÑ€ Ğ¸ÑĞ¿Ğ¾Ğ»ÑŒĞ·Ğ¾Ğ²Ğ°Ğ½Ğ¸Ñ. 
+Ğ ĞµĞ°Ğ»Ğ¸Ğ·Ğ¾Ğ²Ğ°Ñ‚ÑŒ:
+ĞºĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€Ñ‹
+ĞºĞ¾Ğ½ÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€ ĞºĞ¾Ğ¿Ğ¸Ğ¹
+Ğ´ĞµÑÑ‚Ñ€ÑƒĞºÑ‚Ğ¾Ñ€
+Ğ¾Ğ¿ĞµÑ€Ğ°Ñ‚Ğ¾Ñ€Ñ‹ >>,<< - Ğ²Ğ²Ğ¾Ğ´/Ğ²Ñ‹Ğ²Ğ¾Ğ´
+ÑĞ»Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ, Ğ²Ñ‹Ñ‡Ğ¸Ñ‚Ğ°Ğ½Ğ¸Ğµ
+ÑƒĞ¼Ğ½Ğ¾Ğ¶ĞµĞ½Ğ¸Ğµ (ĞšĞ°Ñ€Ğ°Ñ†ÑƒĞ±Ğ°)
+Ğ´ĞµĞ»ĞµĞ½Ğ¸Ğµ, Ğ²Ğ·ÑÑ‚Ğ¸Ğµ Ğ¾ÑÑ‚Ğ°Ñ‚ĞºĞ° (Ğ½Ğ°Ğ¿Ñ€Ğ¸Ğ¼ĞµÑ€, Ğ±Ğ¸ÑĞµĞºÑ†Ğ¸ĞµĞ¹)
+Ğ²Ğ¾Ğ·Ğ²ĞµĞ´ĞµĞ½Ğ¸Ğµ Ğ² ÑÑ‚ĞµĞ¿ĞµĞ½ÑŒ
+â€¦
 Profit
 */
 
@@ -21,18 +21,25 @@ using namespace std;
 
 struct LongInt
 {
-
-    LongInt()
+    int n;
+    
+    LongInt(char* a, int b)
     {
-
+        n = b;
+        char* arr = new char[n];
+        for (int i; i < n; i++)
+            arr[i] = a[i];
     }
-
+    
+    LongInt(LongInt &X)
+    {
+        
+    }
+    
     ~LongInt()
     {
-
+        delete [] arr;
     }
-
-
 
 };
 
@@ -42,21 +49,25 @@ int main()
     char* arr = new char;
     cin.getline(arr, size_t(arr));
     int n = sizeof(arr) / sizeof(arr[0]);
-
+    
     cout << "Enter second number" << endl;
     char* arr2 = new char;
     cin.getline(arr2, size_t(arr2));
     int n2 = sizeof(arr2) / sizeof(arr2[0]);
-
-    cout << "+   " << LongInt(arr) + LongInt(arr) << endl;
-    cout << "-   " << LongInt(arr) - LongInt(arr) << endl;
-    cout << "*   " << LongInt(arr) * LongInt(arr) << endl;
-    cout << "/   " << LongInt(arr) / LongInt(arr) << endl;
-    cout << "%   " << LongInt(arr) % LongInt(arr) << endl;
-    cout << "pow   " << LongInt(arr) << endl;
-
+    
+    cout << "Enter exponent" << endl;
+    int k;
+    cin >> k;
+    
+    cout << "+   " << LongInt(arr, n) + LongInt(arr2, n2) << endl;
+    cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
+    cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
+    cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
+    cout << "%   " << LongInt(arr, n) % LongInt(arr2, n2) << endl;
+    cout << "pow   " << LongInt(arr) ^ k << endl;
+    
     delete [] arr;
     delete [] arr2;
-
+    
     return 0;
 }
