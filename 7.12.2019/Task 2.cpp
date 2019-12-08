@@ -53,7 +53,7 @@ int res(int* arr, int nn, int k)
     {
         i = (n0 + nn) / 2;
         if (k > arr[i])
-            n0 = i;
+            n0 = i + 1;
         else if (k < arr[i])
             nn = i;
         else if (k == arr[i])
