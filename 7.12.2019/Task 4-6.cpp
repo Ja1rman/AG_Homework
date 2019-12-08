@@ -94,8 +94,15 @@ LongInt operator+ (LongInt a, LongInt b)
             }
         }
     }
-    
-    
+    if (temp[0] != 0)
+    {
+        string str = string(temp);
+        return str;
+    }
+    else
+    {
+        
+    }
     
 };
 
@@ -151,4 +158,4 @@ int main()
     delete [] arr2;
     
     return 0;
-} 
+}
