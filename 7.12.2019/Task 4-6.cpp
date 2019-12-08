@@ -50,6 +50,53 @@ struct LongInt
 LongInt operator+ (LongInt a, LongInt b)
 {
     
+    if (a.n > b.n)
+    {
+        char* temp = new char[a.n + 1];
+        for (int i = 0; i <= n; i++)
+            temp[i] = 0;
+            
+        for (int i = a.n; i > 0; i--)
+        {
+            for (int j = b.n; j > 0; j--)
+            {
+                int p = (int)a.n + (int)b.n;
+                if (p > 10)
+                {
+                    if (i != n)
+                        temp[i] = p % 10;
+                    else
+                        temp[i] = p % 10 + temp[i];
+                    temp[i + 1] = p / 10
+                }
+            }
+        }
+    }
+    else
+    {
+        char* temp = new char[b.n + 1];
+        for (int i = 0; i <= b.n; i++)
+            temp[i] = 0;
+            
+        for (int i = b.n; i > 0; i--)
+        {
+            for (int j = a.n; j > 0; j--)
+            {
+                int p = (int)a.n + (int)b.n;
+                if (p > 10)
+                {
+                    if (i != n)
+                        temp[i] = p % 10;
+                    else
+                        temp[i] = p % 10 + temp[i];
+                    temp[i + 1] = p / 10
+                }
+            }
+        }
+    }
+    
+    for ()
+    
 };
 
 LongInt operator- (LongInt a, LongInt b)
@@ -103,5 +150,5 @@ int main()
     delete [] arr;
     delete [] arr2;
     
-    return 0; 
+    return 0;
 }
