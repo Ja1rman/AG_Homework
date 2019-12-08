@@ -53,21 +53,21 @@ LongInt operator+ (LongInt a, LongInt b)
     if (a.n > b.n)
     {
         char* temp = new char[a.n + 1];
-        for (int i = 0; i <= n; i++)
+        for (int i = 0; i <= a.n; i++)
             temp[i] = 0;
             
         for (int i = a.n; i > 0; i--)
         {
             for (int j = b.n; j > 0; j--)
             {
-                int p = (int)a.n + (int)b.n;
+                int p = (int)a.arr[i] + (int)b.arr[i];
                 if (p > 10)
                 {
-                    if (i != n)
+                    if (i != a.n)
                         temp[i] = p % 10;
                     else
                         temp[i] = p % 10 + temp[i];
-                    temp[i + 1] = p / 10
+                    temp[i + 1] = p / 10;
                 }
             }
         }
@@ -82,20 +82,20 @@ LongInt operator+ (LongInt a, LongInt b)
         {
             for (int j = a.n; j > 0; j--)
             {
-                int p = (int)a.n + (int)b.n;
+                int p = (int)a.arr[i] + (int)b.arr[i];
                 if (p > 10)
                 {
-                    if (i != n)
+                    if (i != b.n)
                         temp[i] = p % 10;
                     else
                         temp[i] = p % 10 + temp[i];
-                    temp[i + 1] = p / 10
+                    temp[i + 1] = p / 10;
                 }
             }
         }
     }
     
-    for ()
+    
     
 };
 
@@ -140,12 +140,12 @@ int main()
     int k;
     cin >> k;
     
-    cout << "+   " << LongInt(arr, n) + LongInt(arr2, n2) << endl;
-    cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
+    cout << "+   " << LongInt(&arr, &n) + LongInt(&arr2, &n2) << endl;
+    /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
     cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
     cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
     cout << "%   " << LongInt(arr, n) % LongInt(arr2, n2) << endl;
-    cout << "pow   " << LongInt(arr) ^ k << endl;
+    cout << "pow   " << LongInt(arr) ^ k << endl;*/
     
     delete [] arr;
     delete [] arr2;
