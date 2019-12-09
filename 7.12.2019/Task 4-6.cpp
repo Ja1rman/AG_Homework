@@ -49,7 +49,7 @@ struct LongInt
 };
 
 LongInt operator+ (LongInt a, LongInt b)
-{/*
+{
     
     if ((int)a.n > (int)b.n)
     {
@@ -81,18 +81,14 @@ LongInt operator+ (LongInt a, LongInt b)
         }
     
         if (temp[0] != 0)
-        {
-            string str = string(temp);
-            return str;
-        }
+            return LongInt(temp, a.n + 1);
         else
         {
             char* temp2 = new char[a.n];
             for (int i = 0; i < a.n; i++)
                 temp2[i] = temp[i + 1];
                 
-            string str = string(temp2);
-            return str;
+            return LongInt(temp2, a.n);
         }
     }
     else
@@ -125,20 +121,16 @@ LongInt operator+ (LongInt a, LongInt b)
         }
         
         if (temp[0] != 0)
-        {
-            string str = string(temp);
-            return str;
-        }
+            return LongInt(temp, b.n + 1);
         else
         {
             char* temp2 = new char[b.n];
             for (int i = 0; i < b.n; i++)
                 temp2[i] = temp[i + 1];
                 
-            string str = string(temp2);
-            return str;
+            return LongInt(temp, b.n);
         }
-    }*/
+    }
 };
 
 LongInt operator- (LongInt a, LongInt b)
@@ -188,7 +180,7 @@ int main()
     int k;
     cin >> k;
     
-    cout << "+   " << LongInt((char*)arr, n) + LongInt((char*)arr2, n2) << endl;
+    cout << "+   " << LongInt(arr, n) + LongInt(arr2, n2) << endl;
     /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
     cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
     cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
