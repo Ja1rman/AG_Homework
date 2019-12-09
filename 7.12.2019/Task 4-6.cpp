@@ -178,26 +178,6 @@ istream& operator>> (std::istream& in, LongInt &a)
 
 int main()
 {
-    cout << "Enter first number" << endl;
-    string str;
-    cin >> str;
-    int n = str.size();
-    char* arr = new char[n];
-    for (int i = 0; i < n; i++)
-        arr[i] = str[i];
-    
-    cout << "Enter second number" << endl;
-    string str2;
-    cin >> str2;
-    int n2 = str2.size();
-    char* arr2 = new char[n];
-    for (int i = 0; i < n2; i++)
-        arr2[i] = str2[i];
-    
-    cout << "Enter exponent" << endl;
-    int k;
-    cin >> k;
-    
     LongInt a;
     LongInt b;
     cin >> a >> b;
