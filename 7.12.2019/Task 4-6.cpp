@@ -158,6 +158,24 @@ LongInt operator^ (LongInt a, LongInt b)
     
 };
 
+ostream& operator<< (std::ostream& out, const LongInt &a)
+{ 
+    string str = string(a.arr);
+    return out << str;
+};
+
+istream& operator>> (std::istream& in, LongInt &a)
+{
+    string str;
+    in >> str;
+    int n = str.size();
+    char* arr = new char[n];
+    for (int i = 0; i < n; i++)
+        arr[i] = str[i];
+    
+    return LongInt(arr, n);
+};
+
 int main()
 {
     cout << "Enter first number" << endl;
@@ -180,8 +198,13 @@ int main()
     int k;
     cin >> k;
     
-    cout << "+   " << LongInt(arr, n) + LongInt(arr2, n2) << endl;
-    /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
+    LongInt a;
+    LongInt b;
+    cin >> a >> b;
+    cout << a + b;
+    
+    /*cout << "+   " << LongInt(arr, n) + LongInt(arr2, n2) << endl;
+    cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
     cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
     cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
     cout << "%   " << LongInt(arr, n) % LongInt(arr2, n2) << endl;
