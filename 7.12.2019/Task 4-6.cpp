@@ -16,6 +16,7 @@ Profit
 
 #include <iostream>
 #include <iterator>
+#include <string>
 
 using namespace std;
 
@@ -50,26 +51,33 @@ struct LongInt
 LongInt operator+ (LongInt a, LongInt b)
 {
     
-    if (a.n > b.n)
+    if ((int)a.n > (int)b.n)
     {
-        char* temp = new char[a.n + 1];
-        for (int i = 0; i <= a.n; i++)
+        char* temp = new char[(int)a.n + 1];
+        for (int i = 0; i <= (int)a.n; i++)
             temp[i] = 0;
             
-        for (int i = a.n; i > 0; i--)
+        int j = (int)a.n - 1;
+        int jj = (int)b.n - 1;
+        while (j >= 0)
         {
-            for (int j = b.n; j > 0; j--)
+            if (jj >= 0)
             {
-                int p = (int)a.arr[i] + (int)b.arr[i];
+                int p = (int)a.arr[j] + (int)b.arr[jj] + temp[j];
                 if (p > 10)
                 {
-                    if (i != a.n)
-                        temp[i] = p % 10;
+                    if (j != (int)a.n - 1)
+                        temp[j + 1] = p % 10;
                     else
-                        temp[i] = p % 10 + temp[i];
-                    temp[i + 1] = p / 10;
+                        temp[j + 1] = p % 10 + temp[j];
+                    temp[j] = p / 10;
                 }
             }
+            else
+                temp[j + 1] = (int)a.n + temp[j];
+            
+            j--;
+            jj--;
         }
     
         if (temp[0] != 0)
@@ -93,20 +101,27 @@ LongInt operator+ (LongInt a, LongInt b)
         for (int i = 0; i <= b.n; i++)
             temp[i] = 0;
             
-        for (int i = b.n; i > 0; i--)
+        int j = (int)b.n - 1;
+        int jj = (int)a.n - 1;
+        while (j >= 0)
         {
-            for (int j = a.n; j > 0; j--)
+            if (jj >= 0)
             {
-                int p = (int)a.arr[i] + (int)b.arr[i];
+                int p = (int)b.arr[j] + (int)a.arr[jj] + temp[j];
                 if (p > 10)
                 {
-                    if (i != b.n)
-                        temp[i] = p % 10;
+                    if (j != (int)b.n - 1)
+                        temp[j + 1] = p % 10;
                     else
-                        temp[i] = p % 10 + temp[i];
-                    temp[i + 1] = p / 10;
+                        temp[j + 1] = p % 10 + temp[j];
+                    temp[j] = p / 10;
                 }
             }
+            else
+                temp[j + 1] = (int)b.n + temp[j];
+            
+            j--;
+            jj--;
         }
         
         if (temp[0] != 0)
@@ -116,7 +131,7 @@ LongInt operator+ (LongInt a, LongInt b)
         }
         else
         {
-            char* temp2 = new char[a.n];
+            char* temp2 = new char[b.n];
             for (int i = 0; i < b.n; i++)
                 temp2[i] = temp[i + 1];
                 
