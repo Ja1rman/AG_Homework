@@ -169,18 +169,18 @@ LongInt operator^ (LongInt a, LongInt b)
 int main()
 {
     cout << "Enter first number" << endl;
-    char* arr = new char;
     string str;
     cin >> str;
     int n = str.size();
+    char* arr = new char[n];
     for (int i = 0; i < n; i++)
         arr[i] = str[i];
     
     cout << "Enter second number" << endl;
-    char* arr2 = new char;
     string str2;
     cin >> str2;
     int n2 = str2.size();
+    char* arr2 = new char[n];
     for (int i = 0; i < n2; i++)
         arr2[i] = str2[i];
     
@@ -188,7 +188,7 @@ int main()
     int k;
     cin >> k;
     
-    cout << "+   " << LongInt(&arr, n) + LongInt(&arr2, n2) << endl;
+    cout << "+   " << LongInt((char*)arr, n) + LongInt((char*)arr2, n2) << endl;
     /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
     cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
     cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
