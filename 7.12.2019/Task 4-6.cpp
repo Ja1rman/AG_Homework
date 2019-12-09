@@ -49,7 +49,7 @@ struct LongInt
 };
 
 LongInt operator+ (LongInt a, LongInt b)
-{
+{/*
     
     if ((int)a.n > (int)b.n)
     {
@@ -138,7 +138,7 @@ LongInt operator+ (LongInt a, LongInt b)
             string str = string(temp2);
             return str;
         }
-    }
+    }*/
 };
 
 LongInt operator- (LongInt a, LongInt b)
@@ -170,19 +170,25 @@ int main()
 {
     cout << "Enter first number" << endl;
     char* arr = new char;
-    cin.getline(arr, size_t(arr));
-    int n = sizeof(arr) / sizeof(arr[0]);
+    string str;
+    cin >> str;
+    int n = str.size();
+    for (int i = 0; i < n; i++)
+        arr[i] = str[i];
     
     cout << "Enter second number" << endl;
     char* arr2 = new char;
-    cin.getline(arr2, size_t(arr2));
-    int n2 = sizeof(arr2) / sizeof(arr2[0]);
+    string str2;
+    cin >> str2;
+    int n2 = str2.size();
+    for (int i = 0; i < n2; i++)
+        arr2[i] = str2[i];
     
     cout << "Enter exponent" << endl;
     int k;
     cin >> k;
     
-    cout << "+   " << LongInt(&arr, &n) + LongInt(&arr2, &n2) << endl;
+    cout << "+   " << LongInt(&arr, n) + LongInt(&arr2, n2) << endl;
     /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
     cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
     cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
