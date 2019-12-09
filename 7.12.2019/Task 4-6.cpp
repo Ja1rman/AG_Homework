@@ -71,6 +71,21 @@ LongInt operator+ (LongInt a, LongInt b)
                 }
             }
         }
+    
+        if (temp[0] != 0)
+        {
+            string str = string(temp);
+            return str;
+        }
+        else
+        {
+            char* temp2 = new char[a.n];
+            for (int i = 0; i < a.n; i++)
+                temp2[i] = temp[i + 1];
+                
+            string str = string(temp2);
+            return str;
+        }
     }
     else
     {
@@ -93,17 +108,22 @@ LongInt operator+ (LongInt a, LongInt b)
                 }
             }
         }
-    }
-    if (temp[0] != 0)
-    {
-        string str = string(temp);
-        return str;
-    }
-    else
-    {
         
+        if (temp[0] != 0)
+        {
+            string str = string(temp);
+            return str;
+        }
+        else
+        {
+            char* temp2 = new char[a.n];
+            for (int i = 0; i < b.n; i++)
+                temp2[i] = temp[i + 1];
+                
+            string str = string(temp2);
+            return str;
+        }
     }
-    
 };
 
 LongInt operator- (LongInt a, LongInt b)
