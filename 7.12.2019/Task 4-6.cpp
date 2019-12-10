@@ -134,7 +134,14 @@ LongInt operator+ (LongInt a, LongInt b)
 
 LongInt operator- (LongInt a, LongInt b)
 {
-   //operator >
+    if (a > b)
+    {
+        a - b;
+    }
+    else
+    {
+        -(b - a);
+    }
 };
 
 LongInt operator* (LongInt a, LongInt b)
