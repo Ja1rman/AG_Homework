@@ -15,7 +15,6 @@ Profit
 */
 
 #include <iostream>
-#include <iterator>
 #include <string>
 
 using namespace std;
