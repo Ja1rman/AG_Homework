@@ -24,7 +24,7 @@ struct LongInt
     int n;
     char* arr;
    
-    LongInt(char[] a, int b)
+    LongInt(char* a, int b)
     {
         n = b;
         char* arr = new char[n];
@@ -62,38 +62,38 @@ LongInt operator+ (LongInt a, LongInt b)
         {
             if (jj >= 0)
             {
-                int p = (int)a.arr[j] + (int)b.arr[jj] + temp[j];
+                int p = (int)a.arr[j] + (int)b.arr[jj] + (int)temp[j];
                 if (p > 10)
                 {
                     if (j != (int)a.n - 1)
                         temp[j + 1] = p % 10;
                     else
-                        temp[j + 1] = p % 10 + temp[j];
+                        temp[j + 1] = p % 10 + (int)temp[j];
                     temp[j] = p / 10;
                 }
             }
             else
-                temp[j + 1] = (int)a.n + temp[j];
+                temp[j + 1] = (int)a.n + (int)temp[j];
            
             j--;
             jj--;
         }
    
         if (temp[0] != 0)
-            return LongInt(temp, a.n + 1);
+            return LongInt(temp, (int)a.n + 1);
         else
         {
             char* temp2 = new char[a.n];
-            for (int i = 0; i < a.n; i++)
+            for (int i = 0; i < (int)a.n; i++)
                 temp2[i] = temp[i + 1];
                
-            return LongInt(temp2, a.n);
+            return LongInt(temp2, (int)a.n);
         }
     }
     else
     {
-        char* temp = new char[b.n + 1];
-        for (int i = 0; i <= b.n; i++)
+        char* temp = new char[(int)b.n + 1];
+        for (int i = 0; i <= (int)b.n; i++)
             temp[i] = 0;
            
         int j = (int)b.n - 1;
@@ -102,13 +102,13 @@ LongInt operator+ (LongInt a, LongInt b)
         {
             if (jj >= 0)
             {
-                int p = (int)b.arr[j] + (int)a.arr[jj] + temp[j];
+                int p = (int)b.arr[j] + (int)a.arr[jj] + (int)temp[j];
                 if (p > 10)
                 {
                     if (j != (int)b.n - 1)
                         temp[j + 1] = p % 10;
                     else
-                        temp[j + 1] = p % 10 + temp[j];
+                        temp[j + 1] = p % 10 + (int)temp[j];
                     temp[j] = p / 10;
                 }
             }
@@ -120,21 +120,21 @@ LongInt operator+ (LongInt a, LongInt b)
         }
        
         if (temp[0] != 0)
-            return LongInt(temp, b.n + 1);
+            return LongInt(temp, (int)b.n + 1);
         else
         {
             char* temp2 = new char[b.n];
             for (int i = 0; i < b.n; i++)
                 temp2[i] = temp[i + 1];
                
-            return LongInt(temp2, b.n);
+            return LongInt(temp2, (int)b.n);
         }
     }
 };
 
 LongInt operator- (LongInt a, LongInt b)
 {
-   
+   //operator >
 };
 
 LongInt operator* (LongInt a, LongInt b)
@@ -157,6 +157,25 @@ LongInt operator^ (LongInt a, LongInt b)
    
 };
 
+bool operator> (Rational a, Rational b)
+{
+    if ((int)a.n != (int)b.n)
+    {
+        if ((int)a.n > (int)b.n)
+            return 1;
+        else 
+            return 0;
+    }
+    else
+    {
+        int i = (int)a.n - 1;
+        while (i >= 0)
+        {
+            if ((int)a.arr[i] > (int)b.arr[i])
+        }
+    }
+};
+
 ostream& operator<< (std::ostream& out, const LongInt &a)
 {
     string str = string(a.arr);
@@ -168,8 +187,8 @@ istream& operator>> (std::istream& in, LongInt &a)
     string str;
     in >> str;
     a.n = str.size();
-    a.arr = new char[a.n];
-    for (int i = 0; i < a.n; i++)
+    a.arr = new char[(int)a.n];
+    for (int i = 0; i < (int)a.n; i++)
         a.arr[i] = str[i];
    
     return in;
