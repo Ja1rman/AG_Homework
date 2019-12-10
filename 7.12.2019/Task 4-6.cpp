@@ -172,7 +172,11 @@ bool operator> (Rational a, Rational b)
         while (i >= 0)
         {
             if (a.arr[i] > b.arr[i])
+                return 1;
+            if (a.arr[i] == b.arr[i] && i == 0)
+                return 1;
         }
+        return 0;
     }
 };
 
