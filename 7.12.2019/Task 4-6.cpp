@@ -159,12 +159,25 @@ LongInt operator% (LongInt a, LongInt b)
    
 };
 
-LongInt operator^ (LongInt a, LongInt b)
+LongInt operator^ (LongInt a, int k)
 {
-   
+    if (k == 1)
+        return LontInt(a.arr, a.n);
+    else if (k == 0)
+        return 1;
+    else
+    {
+        while (k > 1)
+        {
+            //a = a * a;
+            k--;
+        }    
+        
+        //return LongInt(a); 
+    }
 };
 
-bool operator> (Rational a, Rational b)
+bool operator> (LontInt a, LontInt b)
 {
     if (a.n != b.n)
     {
