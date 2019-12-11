@@ -136,11 +136,11 @@ LongInt operator- (LongInt a, LongInt b)
 {
     if (a > b)
     {
-        a - b;
+        //a - b;
     }
     else
     {
-        -(b - a);
+        //-(b - a);
     }
 };
 
