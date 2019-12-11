@@ -4,6 +4,11 @@
 
 using namespace std;
 
+int res(vector <pair <int, pair <int, int>>>, int n)
+{
+    
+}
+
 int main()
 {
     int n;
@@ -17,7 +22,9 @@ int main()
         arr.push_back(make_pair(x, make_pair(g, d)));
     }
 
+    int k = res(arr, n);
 
-
+    cout << K;
+    
     return 0;
 }
