@@ -5,6 +5,9 @@
 using namespace std;
 
 int merge(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
+{
+    
+}
 
 int res(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
 {
