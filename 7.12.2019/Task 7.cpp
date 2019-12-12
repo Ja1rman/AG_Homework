@@ -4,9 +4,16 @@
 
 using namespace std;
 
-int res(vector <pair <int, pair <int, int>>>, int n)
+int merge(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
+
+int res(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
 {
-    
+    if (n0 < nn)
+    {
+        res(arr, n0, (n0 + nn) / 2);
+        res(arr, (n0 + nn) / 2 + 1, nn);
+        merge(arr, n0, nn);
+    }
 }
 
 int main()
@@ -22,9 +29,9 @@ int main()
         arr.push_back(make_pair(x, make_pair(g, d)));
     }
 
-    int k = res(arr, n);
+    int k = res(arr, 0, nn);
 
-    cout << K;
+    cout << k;
     
     return 0;
 }
