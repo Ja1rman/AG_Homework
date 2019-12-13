@@ -10,12 +10,12 @@ int res(int* x, int* zoloto, int* nrj, int i)
             nn++;
             if ((x[nn] - x[i] > nrj[nn + 1] - nrj[i]) && nn <= n)
             {
-                return temp = zoloto[nn] - zoloto[i];
+                return zoloto[nn] - zoloto[i];
                 
             }
             else if (nn > n)
             {
-                return temp = zoloto[nn] - zoloto[i];
+                return zoloto[nn] - zoloto[i];
                 
             }
         }
