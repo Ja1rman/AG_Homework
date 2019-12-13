@@ -11,7 +11,7 @@ int res(int* x, int* zoloto, int* nrj, int n0, int nn)
     {
         i = (n0 + nn) / 2;
         if ((x[nn - 1] - x[mm] >= nrj[nn] - nrj[mm]) && (x[nn - 2] - x[mm] <= nrj[nn - 1] - nrj[mm]) && (nn <= n))
-            return zoloto[nn] - zoloto[mm];
+            return zoloto[nn - 1] - zoloto[mm];
         else if ((x[nn - 1] - x[mm] <= nrj[nn] - nrj[mm]) && (x[nn - 2] - x[mm] <= nrj[nn - 1] - nrj[mm]) && (nn <= n))
             n0 = i + 1;
         else if ((x[nn - 1] - x[mm] >= nrj[nn] - nrj[mm]) && (x[nn - 2] - x[mm] >= nrj[nn - 1] - nrj[mm]) && (nn <= n))
