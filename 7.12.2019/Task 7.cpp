@@ -4,19 +4,9 @@
 
 using namespace std;
 
-int merge(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
-{
-    
-}
-
 int res(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
 {
-    if (n0 < nn)
-    {
-        res(arr, n0, (n0 + nn) / 2);
-        res(arr, (n0 + nn) / 2 + 1, nn);
-        merge(arr, n0, nn);
-    }
+    
 }
 
 int main()
@@ -32,9 +22,21 @@ int main()
         arr.push_back(make_pair(x, make_pair(g, d)));
     }
 
+    int* mas = new int[n];
+    for (int i = 0; i < n; i++)
+    {
+        int p = 0;
+        for (int j = 0; j <= i; j++)
+            p += arr[j].second.second;
+        
+        mas[i] = p;
+    }
+
     int k = res(arr, 0, nn);
 
     cout << k;
+    
+    
     
     return 0;
 }
