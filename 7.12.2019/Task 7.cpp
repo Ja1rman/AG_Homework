@@ -1,6 +1,4 @@
 #include <iostream>
-#include <vector>
-#include <utility>
 
 using namespace std;
 
@@ -15,7 +13,7 @@ int main()
     int* x = new int[n];
     for (int i = 0; i < n; i++)
         cin >> x[i] >> energ[i + 1] >> gold[i];
-    
+
     int max = 0;
     
     for (int i = 0; i < n; i++)
