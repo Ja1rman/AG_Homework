@@ -14,7 +14,7 @@ int main()
     for (int i = 0; i < n; i++)
         cin >> x[i] >> gold[i] >> energ[i + 1];
 
-    int nnj[n + 1];
+    int nrj[n + 1];
     nrj[0] = 0;
     for (int i = 1; i <= n; i++)
     {
