@@ -44,7 +44,7 @@ int main()
         while (1)
         {
             nn++;
-            if (x[nn] - x[i] > nrj[nn + 1] - nrj[i] && nn <= n)
+            if ((x[nn] - x[i] > nrj[nn + 1] - nrj[i]) && nn <= n)
             {
                 temp = zoloto[nn] - zoloto[i];
                 break;
@@ -63,6 +63,7 @@ int main()
     cout << max;
     
     delete [] zoloto;
+    
     
     return 0;
 }
