@@ -2,6 +2,26 @@
 
 using namespace std;
 
+int res(int* x, int* zoloto, int* nrj, int i)
+{
+    int nn = i;
+        while (1)
+        {
+            nn++;
+            if ((x[nn] - x[i] > nrj[nn + 1] - nrj[i]) && nn <= n)
+            {
+                return temp = zoloto[nn] - zoloto[i];
+                
+            }
+            else if (nn > n)
+            {
+                return temp = zoloto[nn] - zoloto[i];
+                
+            }
+        }
+        
+}
+
 int main()
 {
     int n;
@@ -9,11 +29,11 @@ int main()
 
     int energ[n];
     int gold[n];
-    int x[n];
+    int* x = new int[n];
     for (int i = 0; i < n; i++)
         cin >> x[i] >> gold[i] >> energ[i];
 
-    int nrj[n + 1];
+    int* nrj = new int[n + 1];
     nrj[0] = 0;
     for (int i = 1; i <= n; i++)
     {
@@ -36,25 +56,10 @@ int main()
     }
     
     int max = 0;
-    
     for (int i = 0; i < n; i++)
     {
-        int temp = 0;
-        int nn = i;
-        while (1)
-        {
-            nn++;
-            if ((x[nn] - x[i] > nrj[nn + 1] - nrj[i]) && nn <= n)
-            {
-                temp = zoloto[nn] - zoloto[i];
-                break;
-            }
-            else if (nn > n)
-            {
-                temp = zoloto[nn] - zoloto[i];
-                break;
-            }
-        }
+        int temp = res(x, zoloto, nrj, i);
+        
         if (temp > max)
             max = temp;
     }
@@ -64,7 +69,8 @@ int main()
     cout << max;
     
     delete [] zoloto;
-    
+    delete [] x;
+    delete [] nrj;
     
     return 0;
 }
