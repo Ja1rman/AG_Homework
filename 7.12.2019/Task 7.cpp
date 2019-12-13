@@ -59,11 +59,11 @@ int main()
             max = temp;
     }
     
-
+    if (n == 1)
+        max = zoloto[1];
     cout << max;
     
     delete [] zoloto;
-    
     
     return 0;
 }
