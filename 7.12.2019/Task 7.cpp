@@ -7,13 +7,24 @@ int main()
     int n;
     cin >> n;
 
-    int* energ = new int[n + 1];
+    int energ[n + 1];
     energ[0] = 0;
-    int* gold = new int[n];
-    int* x = new int[n];
+    int gold[n];
+    int x[n];
     for (int i = 0; i < n; i++)
-        cin >> x[i] >> energ[i + 1] >> gold[i];
+        cin >> x[i] >> gold[i] >> energ[i + 1];
 
+    int nnj[n + 1];
+    nrj[0] = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int temp = 0;
+        for (int j = 1; j <= i; j++)
+            temp += energ[j];
+        
+        nrj[i] = temp;
+    }
+    
     int max = 0;
     
     for (int i = 0; i < n; i++)
@@ -23,10 +34,8 @@ int main()
         while (1)
         {
             nn++;
-            if (x[nn] - x[i] <= energ[nn] - energ[i])
-            {
+            if (x[nn] - x[i] <= nrj[nn + 1] - nrj[i])
                 temp += gold[nn];
-            }
             else
                 break;
         }
