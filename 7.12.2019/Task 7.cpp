@@ -6,7 +6,18 @@ using namespace std;
 
 int res(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
 {
-    
+    int i;
+
+    while (n0 < nn)
+    {
+        i = (n0 + nn) / 2;
+        if (k > arr[i])
+            n0 = i + 1;
+        else if (k < arr[i])
+            nn = i;
+        else if (k == arr[i])
+            return 1;
+    }
 }
 
 int main()
@@ -31,12 +42,18 @@ int main()
         
         mas[i] = p;
     }
-
-    int k = res(arr, 0, nn);
-
-    cout << k;
     
+    int max = 0;
+    int n0 = 0;
     
+    for (int i = 0; i < n; i++)
+    {
+        int m = res(arr, n0, n);
+        
+    }
+    
+
+    cout << ;
     
     return 0;
 }
