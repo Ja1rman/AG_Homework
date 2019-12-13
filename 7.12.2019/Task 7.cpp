@@ -65,5 +65,6 @@ int main()
     
     delete [] zoloto;
     
+    
     return 0;
 }
