@@ -7,12 +7,11 @@ int main()
     int n;
     cin >> n;
 
-    int energ[n + 1];
-    energ[0] = 0;
+    int energ[n];
     int gold[n];
     int x[n];
     for (int i = 0; i < n; i++)
-        cin >> x[i] >> gold[i] >> energ[i + 1];
+        cin >> x[i] >> gold[i] >> energ[i];
 
     int nrj[n + 1];
     nrj[0] = 0;
@@ -20,7 +19,7 @@ int main()
     {
         int temp = 0;
         for (int j = 1; j <= i; j++)
-            temp += energ[j];
+            temp += energ[j - 1];
         
         nrj[i] = temp;
     }
@@ -31,7 +30,7 @@ int main()
     {
         int temp = 0;
         for (int j = 1; j <= i; j++)
-            temp += gold[j];
+            temp += gold[j - 1];
         
         zoloto[i] = temp;
     }
@@ -45,7 +44,12 @@ int main()
         while (1)
         {
             nn++;
-            if (x[nn] - x[i]  nrj[nn + 1] - nrj[i])
+            if (x[nn] - x[i] > nrj[nn + 1] - nrj[i] && nn <= n)
+            {
+                temp = zoloto[nn] - zoloto[i];
+                break;
+            }
+            else if (nn > n)
             {
                 temp = zoloto[nn] - zoloto[i];
                 break;
@@ -59,7 +63,6 @@ int main()
     cout << max;
     
     delete [] zoloto;
-    
     
     return 0;
 }
