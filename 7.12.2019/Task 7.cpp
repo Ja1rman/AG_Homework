@@ -2,21 +2,21 @@
 
 using namespace std;
 
-int res(int* x, int* zoloto, int* nrj, int n0, int nn, int n)
+int res(int* x, int* zoloto, int* nrj, int n0, int nn, int mmm, int n)
 {
     int i;
 
     while (n0 < nn)
     {
         i = (n0 + nn) / 2;
-        if (x[nn] - x[n0] >= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] <= nrj[nn] - nrj[n0] && nn <= n)
-            return zoloto[nn] - zoloto[i];
-        else if (x[nn] - x[n0] >= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] >= nrj[nn] - nrj[n0] && nn <= n)
+        if ((x[nn] - x[mmm] >= nrj[nn + 1] - nrj[mmm]) && (x[nn - 1] - x[mm] <= nrj[nn] - nrj[mmm]) && (nn <= n))
+            return zoloto[nn] - zoloto[mmm];
+        else if ((x[nn] - x[mmm] >= nrj[nn + 1] - nrj[mmm]) && (x[nn - 1] - x[mmm] >= nrj[nn] - nrj[mmm]) && (nn <= n))
             n0 = i + 1;
-        else if (x[nn] - x[n0] <= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] <= nrj[nn] - nrj[n0] && nn <= n)
+        else if ((x[nn] - x[mmm] <= nrj[nn + 1] - nrj[mmm]) && (x[nn - 1] - x[mmm] <= nrj[nn] - nrj[mmm]) && (nn <= n))
             nn = i; 
         else if (nn >= n);
-            return zoloto[nn] - zoloto[i];
+            return zoloto[nn] - zoloto[mmm];
     }
     return -1;
 }
@@ -57,7 +57,7 @@ int main()
     int max = 0;
     for (int i = 0; i < n; i++)
     {
-        int temp = res(x, zoloto, nrj, i, n, n);
+        int temp = res(x, zoloto, nrj, i, n, i, n);
         
         if (temp > max)
             max = temp;
