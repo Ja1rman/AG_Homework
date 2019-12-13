@@ -2,24 +2,21 @@
 
 using namespace std;
 
-int res(int* x, int* zoloto, int* nrj, int i, int n)
+int res(int* x, int* zoloto, int* nrj, int n0, int nn)
 {
-    int nn = i;
-        while (1)
-        {
-            nn++;
-            if ((x[nn] - x[i] > nrj[nn + 1] - nrj[i]) && nn <= n)
-            {
-                return zoloto[nn] - zoloto[i];
-                
-            }
-            else if (nn > n)
-            {
-                return zoloto[nn] - zoloto[i];
-                
-            }
-        }
-        
+    int i;
+
+    while (n0 < nn)
+    {
+        i = (n0 + nn) / 2;
+        if (x[nn] - x[n0] >= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] <= nrj[nn] - nrj[n0])
+            return zoloto[nn] - zoloto[i];
+        else if (x[nn] - x[n0] >= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] >= nrj[nn] - nrj[n0])
+            n0 = i + 1;
+        else if (x[nn] - x[n0] <= nrj[nn + 1] - nrj[n0] && x[nn - 1] - x[n0] <= nrj[nn] - nrj[n0])
+            nn = i; 
+    }
+    return -1;
 }
 
 int main()
@@ -66,6 +63,7 @@ int main()
     
     if (n == 1)
         max = zoloto[1];
+        
     cout << max;
     
     delete [] zoloto;
