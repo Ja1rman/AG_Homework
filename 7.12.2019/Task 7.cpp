@@ -25,19 +25,31 @@ int main()
         nrj[i] = temp;
     }
     
+    int* zoloto = new int[n + 1];
+    zoloto[0] = 0;
+    for (int i = 1; i <= n; i++)
+    {
+        int temp = 0;
+        for (int j = 1; j <= i; j++)
+            temp += gold[j];
+        
+        zoloto[i] = temp;
+    }
+    
     int max = 0;
     
     for (int i = 0; i < n; i++)
     {
-        int temp = gold[i];
+        int temp = 0;
         int nn = i;
         while (1)
         {
             nn++;
-            if (x[nn] - x[i] <= nrj[nn + 1] - nrj[i])
-                temp += gold[nn];
-            else
+            if (x[nn] - x[i]  nrj[nn + 1] - nrj[i])
+            {
+                temp = zoloto[nn] - zoloto[i];
                 break;
+            }
         }
         if (temp > max)
             max = temp;
@@ -45,6 +57,9 @@ int main()
     
 
     cout << max;
+    
+    delete [] zoloto;
+    
     
     return 0;
 }
