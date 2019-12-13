@@ -2,7 +2,7 @@
 
 using namespace std;
 
-int res(int* x, int* zoloto, int* nrj, int i)
+int res(int* x, int* zoloto, int* nrj, int i, int n)
 {
     int nn = i;
         while (1)
@@ -58,7 +58,7 @@ int main()
     int max = 0;
     for (int i = 0; i < n; i++)
     {
-        int temp = res(x, zoloto, nrj, i);
+        int temp = res(x, zoloto, nrj, i, n);
         
         if (temp > max)
             max = temp;
