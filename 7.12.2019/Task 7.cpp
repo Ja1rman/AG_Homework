@@ -4,56 +4,40 @@
 
 using namespace std;
 
-int res(vector <pair <int, pair <int, int>>> arr, int n0, int nn)
-{
-    int i;
-
-    while (n0 < nn)
-    {
-        i = (n0 + nn) / 2;
-        if (k > arr[i])
-            n0 = i + 1;
-        else if (k < arr[i])
-            nn = i;
-        else if (k == arr[i])
-            return 1;
-    }
-}
-
 int main()
 {
     int n;
     cin >> n;
 
-    vector <pair<int, pair<int, int>>> arr(n);
+    int* energ = new int[n + 1];
+    energ[0] = 0;
+    int* gold = new int[n];
+    int* x = new int[n];
     for (int i = 0; i < n; i++)
-    {
-        int x, g, d;
-        cin >> x >> g >> d;
-        arr.push_back(make_pair(x, make_pair(g, d)));
-    }
-
-    int* mas = new int[n];
-    for (int i = 0; i < n; i++)
-    {
-        int p = 0;
-        for (int j = 0; j <= i; j++)
-            p += arr[j].second.second;
-        
-        mas[i] = p;
-    }
+        cin >> x[i] >> energ[i + 1] >> gold[i];
     
     int max = 0;
-    int n0 = 0;
     
     for (int i = 0; i < n; i++)
     {
-        int m = res(arr, n0, n);
-        
+        int temp = gold[i];
+        int nn = i;
+        while (1)
+        {
+            nn++;
+            if (x[nn] - x[i] <= energ[nn] - energ[i])
+            {
+                temp += gold[nn];
+            }
+            else
+                break;
+        }
+        if (temp > max)
+            max = temp;
     }
     
 
-    cout << ;
+    cout << max;
     
     return 0;
 }
