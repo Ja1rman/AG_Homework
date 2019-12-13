@@ -2,10 +2,11 @@
 
 using namespace std;
 
-int res(int* x, int* zoloto, int* nrj, int n0, int nn, int mm, int n)
+int res(int* x, int* zoloto, int* nrj, int n0, int nn)
 {
     int i;
-
+    int mm = n0;
+    int n = nn;
     while (n0 < nn)
     {
         i = (n0 + nn) / 2;
@@ -15,7 +16,7 @@ int res(int* x, int* zoloto, int* nrj, int n0, int nn, int mm, int n)
             n0 = i + 1;
         else if ((x[nn] - x[mm] <= nrj[nn + 1] - nrj[mm]) && (x[nn - 1] - x[mm] <= nrj[nn] - nrj[mm]) && (nn <= n))
             nn = i; 
-        else if (nn >= n);
+        else if (nn > n);
             return zoloto[nn] - zoloto[mm];
     }
     return -1;
@@ -57,7 +58,7 @@ int main()
     int max = 0;
     for (int i = 0; i < n; i++)
     {
-        int temp = res(x, zoloto, nrj, i, n, i, n);
+        int temp = res(x, zoloto, nrj, i, n);
         
         if (temp > max)
             max = temp;
