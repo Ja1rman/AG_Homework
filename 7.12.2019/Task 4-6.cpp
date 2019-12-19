@@ -46,7 +46,7 @@ struct LongInt
     }
 
 };
-/*
+
 LongInt operator+ (LongInt a, LongInt b)
 {
    
@@ -199,7 +199,7 @@ bool operator> (LontInt a, LontInt b)
         return 0;
     }
 };
-*/
+
 istream& operator>> (std::istream& in, LongInt &a)
 {
     string str;
@@ -212,7 +212,7 @@ istream& operator>> (std::istream& in, LongInt &a)
     return in;
 };
 
-ostream& operator<< (std::ostream& out, const LongInt &a)
+ostream& operator<< (std::ostream& out, LongInt &a)
 {
     string str = string(a.arr);
     return out << str;
