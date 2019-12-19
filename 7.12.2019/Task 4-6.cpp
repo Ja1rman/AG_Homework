@@ -46,7 +46,7 @@ struct LongInt
     }
 
 };
-
+/*
 LongInt operator+ (LongInt a, LongInt b)
 {
    
@@ -199,13 +199,7 @@ bool operator> (LontInt a, LontInt b)
         return 0;
     }
 };
-
-ostream& operator<< (std::ostream& out, const LongInt &a)
-{
-    string str = string(a.arr);
-    return out << str;
-};
-
+*/
 istream& operator>> (std::istream& in, LongInt &a)
 {
     string str;
@@ -218,6 +212,12 @@ istream& operator>> (std::istream& in, LongInt &a)
     return in;
 };
 
+ostream& operator<< (std::ostream& out, const LongInt &a)
+{
+    string str = string(a.arr);
+    return out << str;
+};
+
 int main()
 {
     LongInt a();
@@ -225,11 +225,11 @@ int main()
     cin >> a >> b;
    
     cout << "+   " << a + b << endl;
-    /*cout << "-   " << LongInt(arr, n) - LongInt(arr2, n2) << endl;
-    cout << "*   " << LongInt(arr, n) * LongInt(arr2, n2) << endl;
-    cout << "/   " << LongInt(arr, n) / LongInt(arr2, n2) << endl;
-    cout << "%   " << LongInt(arr, n) % LongInt(arr2, n2) << endl;
-    cout << "pow   " << LongInt(arr) ^ k << endl;*/
+    /*cout << "- " << a - b << endl;
+    cout << "*   " << a * b << endl;
+    cout << "/   " << a / b << endl;
+    cout << "%   " << a % b << endl;
+    cout << "pow   " << a ^ k << endl;*/
    
     return 0;
 }
