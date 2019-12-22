@@ -19,7 +19,7 @@ Profit
 
 using namespace std;
 
-struct LongInt
+typedef struct LongInt
 {
     int n;
     int* arr;
@@ -28,28 +28,45 @@ struct LongInt
     {
         n = b;
         int* arr = new int[n];
-        for (int i; i < n; i++)
+        for (int i = 0; i < n; i++)
             arr[i] = a[i];
     }
    
-    LongInt(LongInt &X)
+    LongInt(LongInt const &X)
     {
         n = X.n;
         int* arr = new int[n];
-        for (int i; i < n; i++)
+        for (int i=0; i < n; i++)
             arr[i] = X.arr[i];
     }
    
     ~LongInt()
     {
-        delete [] arr;
+        delete[] (*this).arr;
     }
 
-};
+} LongInt ;
 
-LongInt operator+ (LongInt a, LongInt b)
+istream& operator>> (std::istream& in, LongInt &a)
 {
-   
+    string str;
+    in >> str;
+    a.n = str.size();
+    a.arr = new int[a.n];
+    for (int i = 0; i < a.n; i++)
+        a.arr[i] = str[i] - '0';
+    return in;
+}
+
+ostream& operator<< (std::ostream& out, LongInt &a)
+{
+    for(int i = 0; i < a.n; i++)
+        out << (int) a.arr[i];
+    return out;
+}
+/*
+LongInt operator+ (const LongInt& a,const LongInt& b)
+{
     if (a.n > b.n)
     {
         int* temp = new int[a.n + 1];
@@ -79,15 +96,17 @@ LongInt operator+ (LongInt a, LongInt b)
             jj--;
         }
    
-        if (temp[0] != 0)
-            return LongInt(temp, a.n + 1);
+        if (temp[0] != 0){
+            LongInt xX((int*)temp,(int) a.n+1);
+            return xX;
+        }
         else
         {
             int* temp2 = new int[a.n];
             for (int i = 0; i < a.n; i++)
                 temp2[i] = temp[i + 1];
-               
-            return LongInt(temp2, a.n);
+            LongInt xX(temp2, a.n);
+            return xX;               
         }
     }
     else
@@ -119,47 +138,49 @@ LongInt operator+ (LongInt a, LongInt b)
             jj--;
         }
        
-        if (temp[0] != 0)
-            return LongInt(temp, b.n + 1);
+        if (temp[0] != 0){
+            LongInt xX(temp, b.n+1);
+            return xX;
+        }
         else
         {
             int* temp2 = new int[b.n];
             for (int i = 0; i < b.n; i++)
                 temp2[i] = temp[i + 1];
-               
-            return LongInt(temp2, b.n);
+            LongInt xX(temp2, b.n);
+            return xX;
         }
     }
-};
+}
 
-LongInt operator- (LongInt a, LongInt b)
+/*LongInt operator- (LongInt a, LongInt b)
 {
-    if (a > b)
+//    if (a > b)
     {
-        //a - b;
+        return a - b;
     }
-    else
+//    else
     {
         //-(b - a);
     }
-};
+}
 
 LongInt operator* (LongInt a, LongInt b)
 {
    
-};
+}
 
 LongInt operator/ (LongInt a, LongInt b)
 {
    
-};
+}
 
 LongInt operator% (LongInt a, LongInt b)
 {
    
-};
+}
 
-LongInt operator^ (LongInt a, int k)
+LongInt operator^ (LongInt& a, int k)
 {
     if (k == 1)
         return LontInt(a.arr, a.n);
@@ -175,8 +196,8 @@ LongInt operator^ (LongInt a, int k)
         
         //return LongInt(a); 
     }
-};
-
+}
+*/
 bool operator> (LontInt a, LontInt b)
 {
     if (a.n != b.n)
@@ -198,33 +219,16 @@ bool operator> (LontInt a, LontInt b)
         }
         return 0;
     }
-};
-
-istream& operator>> (std::istream& in, LongInt &a)
-{
-    string str;
-    in >> str;
-    a.n = str.size();
-    a.arr = new int[a.n];
-    for (int i = 0; i < a.n; i++)
-        a.arr[i] = str[i];
-   
-    return in;
-};
-
-ostream& operator<< (std::ostream& out, LongInt &a)
-{
-    string str = string(a.arr);
-    return out << str;
-};
+}
 
 int main()
 {
-    LongInt a();
-    LongInt b();
+    int t[2]={1,0};
+    LongInt a(t,2);
+    LongInt b(t,2);
     cin >> a >> b;
    
-    cout << "+   " << a + b << endl;
+    cout << "+ " << a > b << endl;
     /*cout << "- " << a - b << endl;
     cout << "*   " << a * b << endl;
     cout << "/   " << a / b << endl;
