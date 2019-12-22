@@ -70,7 +70,7 @@ bool operator> (const LongInt& a, const LongInt& b)
     if (a.n == b.n)
     {
         int i = 0;
-        while (i <= a.n)
+        while (i < a.n)
         {
             if (a.arr[i] > b.arr[i])
                 return 1;
@@ -91,8 +91,8 @@ bool operator> (const LongInt& a, const LongInt& b)
     }
 }
 
-/*
-LongInt operator+ (const LongInt& a,const LongInt& b)
+
+LongInt operator+ (LongInt a, LongInt b)
 {
     if (a.n > b.n)
     {
@@ -100,31 +100,33 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
         for (int i = 0; i <= a.n; i++)
             temp[i] = 0;
            
-        int j = a.n - 1;
+        int j = a.n;
         int jj = b.n - 1;
-        while (j >= 0)
+        while (j > 0)
         {
             if (jj >= 0)
             {
-                int p = a.arr[j] + b.arr[jj] + temp[j];
-                if (p > 10)
+                int p = a.arr[j - 1] + b.arr[jj] + temp[j];
+                if (p > 9)
                 {
-                    if (j != a.n - 1)
-                        temp[j + 1] = p % 10;
-                    else
-                        temp[j + 1] = p % 10 + temp[j];
-                    temp[j] = p / 10;
+                    int tt = p % 10;
+                    temp[j] = tt;
+                    p /= 10;
+                    temp[j - 1] = p;
                 }
+                else 
+                    temp[j] = p;
+                    
+                jj--;
             }
             else
-                temp[j + 1] = a.n + temp[j];
+                temp[j] = a.arr[j] + temp[j];
            
             j--;
-            jj--;
         }
    
         if (temp[0] != 0){
-            LongInt xX((int*)temp,(int) a.n+1);
+            LongInt xX(temp, a.n + 1);
             return xX;
         }
         else
@@ -142,31 +144,34 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
         for (int i = 0; i <= b.n; i++)
             temp[i] = 0;
            
-        int j = b.n - 1;
+        int j = b.n;
         int jj = a.n - 1;
-        while (j >= 0)
+        while (j > 0)
         {
             if (jj >= 0)
             {
-                int p = b.arr[j] + a.arr[jj] + temp[j];
-                if (p > 10)
+                int p = b.arr[j - 1] + a.arr[jj] + temp[j];
+                if (p > 9)
                 {
-                    if (j != b.n - 1)
-                        temp[j + 1] = p % 10;
-                    else
-                        temp[j + 1] = p % 10 + temp[j];
-                    temp[j] = p / 10;
+                    int tt = p % 10;
+                    temp[j] = tt;
+                    p /= 10;
+                    temp[j - 1] = p;
                 }
+                else 
+                    temp[j] = p;
+                    
+                jj--;
             }
             else
-                temp[j + 1] = b.n + temp[j];
+                temp[j] = b.arr[j] + temp[j];
            
             j--;
-            jj--;
         }
-       
-        if (temp[0] != 0){
-            LongInt xX(temp, b.n+1);
+   
+        if (temp[0] != 0)
+        {
+            LongInt xX(temp, b.n + 1);
             return xX;
         }
         else
@@ -175,7 +180,7 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
             for (int i = 0; i < b.n; i++)
                 temp2[i] = temp[i + 1];
             LongInt xX(temp2, b.n);
-            return xX;
+            return xX;               
         }
     }
 }
@@ -227,11 +232,8 @@ int main()
     LongInt a(t, 2);
     LongInt b(t, 2);
     cin >> a >> b;
-    if (a > b)
-        cout << 1;
-    else
-        cout << 0;
-    /*cout << "+ " << a + b << endl;
+    
+    cout << "+ " << a + b << endl;
     /*cout << "- " << a - b << endl;
     cout << "*   " << a * b << endl;
     cout << "/   " << a / b << endl;
