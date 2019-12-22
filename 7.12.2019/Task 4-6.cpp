@@ -65,7 +65,7 @@ ostream& operator<< (std::ostream& out, LongInt &a)
     return out;
 }
 
-bool operator>= (const LontInt& a, const LontInt& b)
+bool operator> (const LongInt& a, const LongInt& b)
 {
     if (a.n != b.n)
     {
@@ -177,7 +177,6 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
         }
     }
 }
-
 /*LongInt operator- (LongInt a, LongInt b)
 {
 //    if (a >= b)
@@ -189,22 +188,18 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
         //-(b - a);
     }
 }
-
 LongInt operator* (LongInt a, LongInt b)
 {
    
 }
-
 LongInt operator/ (LongInt a, LongInt b)
 {
    
 }
-
 LongInt operator% (LongInt a, LongInt b)
 {
    
 }
-
 LongInt operator^ (LongInt& a, int k)
 {
     if (k == 1)
@@ -230,8 +225,11 @@ int main()
     LongInt a(t,2);
     LongInt b(t,2);
     cin >> a >> b;
-   
-    cout << "+ " << a > b << endl;
+    if (a > b)
+        cout << 1;
+    else
+        cout << 0;
+    /*cout << "+ " << a + b << endl;
     /*cout << "- " << a - b << endl;
     cout << "*   " << a * b << endl;
     cout << "/   " << a / b << endl;
