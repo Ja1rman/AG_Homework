@@ -125,7 +125,8 @@ LongInt operator+ (LongInt a, LongInt b)
             j--;
         }
    
-        if (temp[0] != 0){
+        if (temp[0] != 0)
+        {
             LongInt xX(temp, a.n + 1);
             return xX;
         }
@@ -134,6 +135,7 @@ LongInt operator+ (LongInt a, LongInt b)
             int* temp2 = new int[a.n];
             for (int i = 0; i < a.n; i++)
                 temp2[i] = temp[i + 1];
+                
             LongInt xX(temp2, a.n);
             return xX;               
         }
