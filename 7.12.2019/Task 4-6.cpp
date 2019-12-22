@@ -235,7 +235,9 @@ int main()
     LongInt b(t, 2);
     cin >> a >> b;
     
-    cout << "+ " << a + b << endl;
+    LongInt p = a + b;
+    
+    cout << "+ " << p << endl;
     /*cout << "- " << a - b << endl;
     cout << "*   " << a * b << endl;
     cout << "/   " << a / b << endl;
