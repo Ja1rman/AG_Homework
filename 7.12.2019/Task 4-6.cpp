@@ -65,11 +65,11 @@ ostream& operator<< (std::ostream& out, LongInt &a)
     return out;
 }
 
-LongInt operator> (LontInt a, LontInt b)
+bool operator>= (const LontInt& a, const LontInt& b)
 {
     if (a.n != b.n)
     {
-        if (a.n > b.n)
+        if (a.n >= b.n)
             return 1;
         else 
             return 0;
@@ -83,6 +83,7 @@ LongInt operator> (LontInt a, LontInt b)
                 return 1;
             if (a.arr[i] == b.arr[i] && i == 0)
                 return 1;
+            i--;
         }
         return 0;
     }
@@ -179,7 +180,7 @@ LongInt operator+ (const LongInt& a,const LongInt& b)
 
 /*LongInt operator- (LongInt a, LongInt b)
 {
-//    if (a > b)
+//    if (a >= b)
     {
         return a - b;
     }
