@@ -64,6 +64,30 @@ ostream& operator<< (std::ostream& out, LongInt &a)
         out << (int) a.arr[i];
     return out;
 }
+
+LongInt operator> (LontInt a, LontInt b)
+{
+    if (a.n != b.n)
+    {
+        if (a.n > b.n)
+            return 1;
+        else 
+            return 0;
+    }
+    else
+    {
+        int i = a.n - 1;
+        while (i >= 0)
+        {
+            if (a.arr[i] > b.arr[i])
+                return 1;
+            if (a.arr[i] == b.arr[i] && i == 0)
+                return 1;
+        }
+        return 0;
+    }
+}
+
 /*
 LongInt operator+ (const LongInt& a,const LongInt& b)
 {
@@ -198,28 +222,6 @@ LongInt operator^ (LongInt& a, int k)
     }
 }
 */
-bool operator> (LontInt a, LontInt b)
-{
-    if (a.n != b.n)
-    {
-        if (a.n > b.n)
-            return 1;
-        else 
-            return 0;
-    }
-    else
-    {
-        int i = a.n - 1;
-        while (i >= 0)
-        {
-            if (a.arr[i] > b.arr[i])
-                return 1;
-            if (a.arr[i] == b.arr[i] && i == 0)
-                return 1;
-        }
-        return 0;
-    }
-}
 
 int main()
 {
