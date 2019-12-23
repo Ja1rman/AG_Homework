@@ -51,6 +51,8 @@ typedef struct LongInt
         int* arr = new int[n];
         for (int i = 0; i < n; i++)
             arr[i] = a.arr[i];
+        
+        return *this;
     }
     
 } LongInt ;
