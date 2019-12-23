@@ -36,7 +36,7 @@ typedef struct LongInt
     {
         n = X.n;
         int* arr = new int[n];
-        for (int i=0; i < n; i++)
+        for (int i = 0; i < n; i++)
             arr[i] = X.arr[i];
     }
    
@@ -44,7 +44,15 @@ typedef struct LongInt
     {
         delete[] (*this).arr;
     }
-
+    
+    LongInt& operator= (LongInt a)
+    {
+        n = a.n;
+        int* arr = new int[n];
+        for (int i = 0; i < n; i++)
+            arr[i] = a.arr[i];
+    }
+    
 } LongInt ;
 
 istream& operator>> (std::istream& in, LongInt &a)
