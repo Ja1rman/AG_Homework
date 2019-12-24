@@ -47,12 +47,7 @@ typedef struct LongInt
     
     LongInt& operator= (const LongInt& a)
     {
-        n = a.n;
-        int* arr = new int[n];
-        for (int i = 0; i < n; i++)
-            arr[i] = a.arr[i];
-        
-        return *this;
+        return LongInt(a);
     }
     
 } LongInt ;
