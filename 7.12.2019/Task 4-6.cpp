@@ -45,7 +45,7 @@ typedef struct LongInt
         delete[] (*this).arr;
     }
     
-    LongInt& operator= (LongInt a)
+    LongInt& operator= (const LongInt& a)
     {
         n = a.n;
         int* arr = new int[n];
@@ -102,7 +102,7 @@ bool operator> (const LongInt& a, const LongInt& b)
 }
 
 
-LongInt operator+ (LongInt a, LongInt b)
+LongInt operator+ (const LongInt& a, const LongInt& b)
 {
     if (a.n > b.n)
     {
