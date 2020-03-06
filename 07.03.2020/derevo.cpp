@@ -12,25 +12,24 @@ struct Node
 struct Tree
 {
     Node* root = NULL;
-
+    
     Tree (int x)
     {
         root = new Node;
         root -> data = x;
     }
-
+    
     ~Tree()
     {
         del(root);
     }
+    void del (Node* t)
+    {
+        if (t -> left) del(t -> left);
+        if (t -> right) del(t -> right);
+        delete t;
+    }
 };
-
-void del (Node* t)
-{
-    if (t -> left) del(t -> left);
-    if (t -> right) del(t -> right);
-    delete t;
-}
 
 bool bfs (Node* t, int x)
 {
@@ -56,7 +55,7 @@ void print (Node* t)
         int a = t -> data;
         cout << a;
     }
-
+    
     if (t -> right != NULL)
         print(t -> right);
     else
@@ -69,17 +68,17 @@ void print (Node* t)
 bool search (Node* t, int x)
 {
     if (t -> data > x)
-        if (search(t = t -> left)) return 1;
+        if (search(t = t -> left, x)) return 1;
     else if (t -> data < x)
-        if (search(t = t -> right)) return 1;
+        if (search(t = t -> right, x)) return 1;
     else if (t -> data == x) return 1;
-
+    
     return 0;
 }
 
 int main()
 {
-
+    
 
     return 0;
 }
