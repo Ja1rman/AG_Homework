@@ -50,19 +50,11 @@ void print (Node* t)
 {
     if (t -> left != NULL)
         print(t -> left);
-    else
-    {
-        int a = t -> data;
-        cout << a;
-    }
+    int a = t -> data;
+    cout << a;
     
     if (t -> right != NULL)
         print(t -> right);
-    else
-    {
-        int a = t -> data;
-        cout << a;
-    }
 }
 
 bool search (Node* t, int x)
@@ -74,6 +66,14 @@ bool search (Node* t, int x)
     else if (t -> data == x) return 1;
     
     return 0;
+}
+
+void add(Node* t, int x)
+{
+    while (t != NULL)
+        if (x > t -> data) t = t -> right;
+        else t = t -> left;
+    t -> data = x;
 }
 
 int main()
