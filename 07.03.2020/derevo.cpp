@@ -76,15 +76,19 @@ void add(Node* t, int x)
     t -> data = x;
 }
 
-void mrightr(Node* a, Node* b, Node* c)
+void mrightr(Node* a)
 {
+    Node* b = a -> left;
+    Node* c = b -> right;
     &a = &b;
     a -> left = c;
     b -> right = a;
 }
 
-void mleftr(Node* a, Node* b, Node* c)
+void mleftr(Node* a)
 {
+    Node* b = a -> right;
+    Node* c = b -> left;
     &a = &b;
     a -> right = c;
     b -> left = a;
