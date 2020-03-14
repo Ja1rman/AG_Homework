@@ -76,22 +76,52 @@ void add(Node* t, int x)
     t -> data = x;
 }
 
-void mrightr(Node* a)
+void rotateRight(Node* root)
 {
+    Node* a = ...;
     Node* b = a -> left;
     Node* c = b -> right;
-    &a = &b;
+    &b ...;
     a -> left = c;
     b -> right = a;
 }
 
-void mleftr(Node* a)
+void rotateLeft(Node* root)
 {
+    Node* a = ...;
     Node* b = a -> right;
     Node* c = b -> left;
-    &a = &b;
+    &b ...;
     a -> right = c;
     b -> left = a;
+}
+
+void bigRotateLeft(Node* root)
+{
+    Node* a = ...;
+    Node* b = a -> right;
+    Node* c = b -> left;
+    Node* m = c -> left;
+    Node* n = c -> right;
+    &c ...;
+    c -> left = a;
+    a -> right = m;
+    c -> right = b;
+    b -> left = n;
+}
+
+void bigRotateRight(Node* root)
+{
+    Node* a = ...;
+    Node* b = a -> left;
+    Node* c = b -> right;
+    Node* m = c -> left;
+    Node* n = c -> right;
+    &c ...;
+    c -> right = a;
+    a -> left = n;
+    c -> left = b;
+    b -> right = m;
 }
 
 int main()
