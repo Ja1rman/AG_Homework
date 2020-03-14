@@ -1,5 +1,7 @@
 #include <iostream>
 #include <queue>
+#include <algorithm>
+
 using namespace std;
 
 struct Node
@@ -74,6 +76,13 @@ void add(Node* t, int x)
         if (x > t -> data) t = t -> right;
         else t = t -> left;
     t -> data = x;
+}
+
+void height(Node* root)
+{
+    int h = 0;
+    h = max(height(root.left), height(root.right));
+    
 }
 
 void rotateRight(Node* root)
