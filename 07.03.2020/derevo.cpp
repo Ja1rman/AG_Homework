@@ -78,11 +78,17 @@ void add(Node* t, int x)
     t -> data = x;
 }
 
-void height(Node* root)
+int height(Node* root)
 {
-    int h = 0;
-    h = max(height(root.left), height(root.right));
-    
+    if (root -> left == NULL) 
+        if (root -> right == NULL) return 0;
+        else return height(root -> right);
+        
+    if (root -> right == NULL) 
+        if (root -> left == NULL) return 0;
+        else return height(root -> left);
+        
+    return max(height(root -> left), height(root -> right));
 }
 
 void rotateRight(Node* root)
