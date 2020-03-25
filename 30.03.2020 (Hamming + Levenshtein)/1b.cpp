@@ -1,3 +1,7 @@
+Написать программу для нахождения
+Расстояния Левенштейна
+
+
 #include <iostream>
 #include <algorithm>
 #include <vector>
