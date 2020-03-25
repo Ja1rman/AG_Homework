@@ -1,3 +1,6 @@
+//Написать программу для нахождения
+//расстояния Хэмминнга
+
 #include <iostream>
 
 using namespace std;
