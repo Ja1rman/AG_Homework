@@ -2,7 +2,7 @@
 //Вычислить минимальную стоимость преобразования первого предложения 1 главы романа "Война и Мир" во второе и обратно.
 //(можно и нужно делать с помощью реализованного алгоритма Вагнера-Фишера из задачи 1)
   
-//Ответ: 1236
+//Ответ: 1485
 
 
 #include <iostream>
@@ -47,8 +47,8 @@ typename T::size_type GeneralizedLevenshteinDistance(const T &source,
 
 int main()
 {
-    std::string target = "Eh bien, mon prince.";
-    std::string source = "Gênes et Lucques ne sont plus que des apanages, des поместья, de la famille Buonaparte.";
+    std::string target = "Well, Prince, so Genoa and Lucca are now just family estates of the Buonapartes.";
+    std::string source = "But I warn you, if you don’t tell me that this means war, if you still try to defend the infamies and horrors perpetrated by that Antichrist.";
     
     //std::cin >> target;
     //std::cin >> source;
