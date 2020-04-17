@@ -1,12 +1,13 @@
-//Количество буферов: 4
+//РљРѕР»РёС‡РµСЃС‚РІРѕ Р±СѓС„РµСЂРѕРІ: 4
 #include <iostream>
 #include <string>
-#include <vector>
 
 using namespace std;
 
 int main()
 {
+    setlocale(LC_ALL, "Russian");
+    
     int k = 4;
 
     string b[k];
@@ -30,11 +31,6 @@ int main()
         }
         cout << endl;
     }
-
-
-
-
-
 
     return 0;
 }
