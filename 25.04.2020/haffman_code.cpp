@@ -4,7 +4,7 @@ using namespace std;
 
 struct Node
 {
-    string name = '';
+    string name = '\0';
     int data = 0;
     Node* left = NULL;
     Node* right = NULL;
@@ -46,7 +46,7 @@ void print (Node* t)
         print(t -> right);
 }
 */
-void add(Node* t, int x)
+void add(Node* t, int x, string y)
 {
     if (t -> right != NULL || t -> left != NULL)
     {
@@ -146,7 +146,6 @@ int main()
     arr.erase(arr.begin(), arr.begin() + size);
 
     haf_code gog;
-
 
     for (vector <pair<int, char> >::iterator it = arr.begin(); it != arr.end(); it++)
          gog.add(it -> first, it -> second)
