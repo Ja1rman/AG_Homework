@@ -66,7 +66,7 @@ int main()
     map <char, int> chars;
 
     char str[500];
-    cout << "Ââåäèòå òåêñò äëÿ êîäèğîâàíèÿ:" << endl;
+    cout << "Ğ’Ğ²ĞµĞ´Ğ¸Ñ‚Ğµ Ñ‚ĞµĞºÑÑ‚ Ğ´Ğ»Ñ ĞºĞ¾Ğ´Ğ¸Ñ€Ğ¾Ğ²Ğ°Ğ½Ğ¸Ñ:" << endl;
     gets(str);
 
     for(unsigned int i = 0; i < strlen(str); i++)
@@ -81,14 +81,15 @@ int main()
 
     for(at = begin; at != end; at++)
     {
-        int b = at -> second;
-        char a = at -> first;
-        arr.push_back(make_pair(b,a));
+        int a = at -> second;
+        char b = at -> first;
+        arr.push_back(make_pair(a,b));
     }
 
     sort(arr.begin(), arr.end(), cmp);
+    arr.erase(arr.begin() + size, arr.end());
     for (vector <pair<int, char> >::iterator it = arr.begin(); it != arr.end(); it++)
-        cout << it -> first << '\t' << it -> second << endl;
+         cout << it -> first << '\t' << it -> second << endl;
 
     return 0;
 }
