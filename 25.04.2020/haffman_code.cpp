@@ -4,8 +4,8 @@ using namespace std;
 
 struct Node
 {
-    string name;
-    int data;
+    string name = '';
+    int data = 0;
     Node* left = NULL;
     Node* right = NULL;
 };
@@ -46,17 +46,68 @@ void print (Node* t)
         print(t -> right);
 }
 */
-void add(Node* t, int x, string y)
+void add(Node* t, int x)
 {
-    while (t != NULL)
-        if (x > t -> data) t = t -> right;
-        else t = t -> left;
-    t -> data = x;
-    t -> name = y;
+    if (t -> right != NULL || t -> left != NULL)
+    {
+        t -> data += x;
+        t -> name += y;
+        if (t -> right == NULL && t -> left == NULL)
+        {
+            t -> left -> data = x;
+            t -> left -> name = y;
+        }
+        else if (t -> right != NULL)
+        {
+            if(t -> right -> data > x)
+            {
+                t -> left -> data = x;
+                t -> left -> name = y;
+            }
+            else
+            {
+                t -> left -> data = t -> right -> data;
+                t -> left -> name = t -> right -> name;
+                t -> right -> data = x;
+                t -> right -> name = y;
+            }
+        }
+        else
+        {
+            if(t -> left -> data < x)
+            {
+                t -> right -> data = x;
+                t -> right -> name = y;
+            }
+            else
+            {
+                t -> right -> data = t -> left -> data;
+                t -> right -> name = t -> left -> name;
+                t -> left -> data = x;
+                t -> left -> name = y;
+            }
+        }
+    }
+    else
+    {
+        if (t -> data > x)
+        {
+            t -> right = t;
+            t -> left -> data = x;
+            t -> left -> name = y;
+        }
+        else
+        {
+            t -> left = t;
+            t -> right -> data = x;
+            t -> right -> name = y;
+        }
+    }
 }
 
-bool cmp (pair<int, char> p1, pair<int, char> p2) {
-  return p1.first > p2.first;
+bool cmp (pair<int, char> p1, pair<int, char> p2)
+{
+    return p1.first < p2.first;
 }
 
 int main()
@@ -87,9 +138,13 @@ int main()
     }
 
     sort(arr.begin(), arr.end(), cmp);
-    arr.erase(arr.begin() + size, arr.end());
-    for (vector <pair<int, char> >::iterator it = arr.begin(); it != arr.end(); it++)
-         cout << it -> first << '\t' << it -> second << endl;
 
+    arr.erase(arr.begin(), arr.begin() + size);
+
+    haf_code gog;
+
+
+    for (vector <pair<int, char> >::iterator it = arr.begin(); it != arr.end(); it++)
+         gog.add(it -> first, it -> second)
     return 0;
 }
