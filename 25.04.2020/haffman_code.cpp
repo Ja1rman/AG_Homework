@@ -37,7 +37,7 @@ int main()
     sort(arr.begin(), arr.end(), cmp);
     arr.erase(arr.begin(), arr.begin() + size);
 
-    vector <pair<string, char> > res(size);
+    vector <pair<string, string> > res(size);
 
     for (int i = 0; i < arr.size(); i++)
         res.push_back(make_pair('\0', arr[i].second));
@@ -50,31 +50,22 @@ int main()
         string bb = arr[1].second;
 
         for (int i = 0; i < aa.size(); i++)
-        {
             for (int j; j < res.size(); j++)
-            {
-                if (res[j].second == aa[i])
+                if (res[j].second[0] == aa[i])
                 {
                     if (a > b) res[j].first += '1';
                     else res[j].first += '0';
                     break;
                 }
-            }
-        }
+
         for (int i = 0; i < bb.size(); i++)
-        {
             for (int j; j < res.size(); j++)
-            {
-                if (res[j].second == bb[i])
+                if (res[j].second[0] == bb[i])
                 {
                     if (a > b) res[j].first += '0';
                     else res[j].first += '1';
                     break;
                 }
-            }
-        }
-
-
 
         arr[1].first += arr[0].first;
         arr[1].second += arr[0].second;
