@@ -95,12 +95,16 @@ void add(Node* t, int x)
             t -> right = t;
             t -> left -> data = x;
             t -> left -> name = y;
+            t -> data = x + t -> right -> data;
+            t -> name = y + t -> right -> name;
         }
         else
         {
             t -> left = t;
             t -> right -> data = x;
             t -> right -> name = y;
+            t -> data = x + t -> left -> data;
+            t -> name = y + t -> left -> name;
         }
     }
 }
