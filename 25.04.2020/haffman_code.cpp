@@ -2,7 +2,7 @@
 
 using namespace std;
 
-bool cmp (pair<int, char> p1, pair<int, char> p2)
+bool cmp (pair<int, string> p1, pair<int, string> p2)
 {
     return p1.first < p2.first;
 }
@@ -11,16 +11,16 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
-    map <char, int> chars;
+    map <string, int> chars;
 
-    char str[500];
+    string text;
     cout << "Введите текст для кодирования:" << endl;
-    gets(str);
+    getline(cin, text);
 
-    for(unsigned int i = 0; i < strlen(str); i++)
-        chars[str[i]]++;
+    for(unsigned int i = 0; i < text.size(); i++)
+        chars.insert(pair<string,int>(text[i], 1));
 
-    map <char, int>::iterator begin, at, end;
+    map <string, int>::iterator begin, at, end;
     begin = chars.begin();
     end = chars.end();
 
@@ -30,18 +30,27 @@ int main()
     for(at = begin; at != end; at++)
     {
         int a = at -> second;
-        string b(at -> first, 1);
+        string b = at -> first;
         arr.push_back(make_pair(a,b));
     }
-
-    sort(arr.begin(), arr.end(), cmp);
+    for (int i = 0; i < arr.size(); i++)
+    {
+        cout << arr[i].first << ", " << arr[i].second << endl;
+    }
+    /*sort(arr.begin(), arr.end(), cmp);
     arr.erase(arr.begin(), arr.begin() + size);
 
-    vector <pair<string, string> > res(size);
+ /*   vector <pair<string, char> > res(size);
 
     for (int i = 0; i < arr.size(); i++)
-        res.push_back(make_pair('\0', arr[i].second));
-
+    {
+        res.push_back(make_pair("", arr[i].second[0]));
+    }
+    for (int i = 0; i < res.size(); i++)
+    {
+        cout << res[i].first << ", " << res[i].second << endl;
+    }
+/*
     while (arr.size() > 1)
     {
         int a = arr[0].first;
@@ -50,8 +59,8 @@ int main()
         string bb = arr[1].second;
 
         for (int i = 0; i < aa.size(); i++)
-            for (int j; j < res.size(); j++)
-                if (res[j].second[0] == aa[i])
+            for (int j = 0; j < res.size(); j++)
+                if (res[j].second == aa[i])
                 {
                     if (a > b) res[j].first += '1';
                     else res[j].first += '0';
@@ -59,8 +68,8 @@ int main()
                 }
 
         for (int i = 0; i < bb.size(); i++)
-            for (int j; j < res.size(); j++)
-                if (res[j].second[0] == bb[i])
+            for (int j = 0; j < res.size(); j++)
+                if (res[j].second == bb[i])
                 {
                     if (a > b) res[j].first += '0';
                     else res[j].first += '1';
@@ -74,6 +83,6 @@ int main()
 
         sort(arr.begin(), arr.end(), cmp);
     }
-
+*/
     return 0;
 }
