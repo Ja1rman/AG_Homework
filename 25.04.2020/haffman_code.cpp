@@ -11,34 +11,38 @@ int main()
 {
     setlocale(LC_ALL, "rus");
 
-    map <string, int> chars;
+    vector <pair<int, string> > arr;
 
-    string text;
+    string str;
     cout << "Введите текст для кодирования:" << endl;
-    getline(cin, text);
+    getline(cin, str);
 
-    for(unsigned int i = 0; i < text.size(); i++)
-        chars.insert(pair<string,int>(text[i], 1));
-
-    map <string, int>::iterator begin, at, end;
-    begin = chars.begin();
-    end = chars.end();
-
-    int size = chars.size();
-    vector <pair<int, string> > arr(size);
-
-    for(at = begin; at != end; at++)
+    for (int i = 0; i < str.size(); i++)
     {
-        int a = at -> second;
-        string b = at -> first;
-        arr.push_back(make_pair(a,b));
+        string temp = "";
+        temp += str[i];
+        int quant = 0;
+        int num = 0;
+        for (int j = 0; j < arr.size(); j++)
+            if (arr[j].second == temp)
+            {
+                quant = arr[j].first + 1;
+                num = j;
+            }
+
+        if (quant == 0)
+            arr.push_back(make_pair(1, temp));
+        else
+            arr[num].first = quant;
+
     }
+
+    sort(arr.begin(), arr.end(), cmp);
+    //arr.erase(arr.begin(), arr.begin() + size);
     for (int i = 0; i < arr.size(); i++)
     {
         cout << arr[i].first << ", " << arr[i].second << endl;
     }
-    /*sort(arr.begin(), arr.end(), cmp);
-    arr.erase(arr.begin(), arr.begin() + size);
 
  /*   vector <pair<string, char> > res(size);
 
