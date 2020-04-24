@@ -30,11 +30,11 @@ int main()
     for(at = begin; at != end; at++)
     {
         int a = at -> second;
-        char b = at -> first;
+        string b(at -> first, 1);
         arr.push_back(make_pair(a,b));
     }
 
-    /*sort(arr.begin(), arr.end(), cmp);
+    sort(arr.begin(), arr.end(), cmp);
     arr.erase(arr.begin(), arr.begin() + size);
 
     vector <pair<string, char> > res(size);
@@ -82,7 +82,7 @@ int main()
         arr.erase(arr.begin());
 
         sort(arr.begin(), arr.end(), cmp);
-    }*/
+    }
 
     return 0;
 }
