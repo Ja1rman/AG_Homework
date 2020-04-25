@@ -111,5 +111,17 @@ int main()
     {
         cout << res[i].first << ", " << res[i].second << endl;
     }
+    string code = "";
+    for (int i = 0; i < str.size(); i++)
+        for (int j = 0; j < res.size(); j++)
+            if (res[j].second[0] == str[i])
+            {
+                code += res[j].first;
+                break;
+            }
+
+    cout << endl << "Закодированный текст: " << code << endl;
+
+
     return 0;
 }
