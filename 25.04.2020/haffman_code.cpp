@@ -4,7 +4,16 @@ using namespace std;
 
 bool cmp (pair<int, string> p1, pair<int, string> p2)
 {
-    return p1.first < p2.first;
+    if (p1.first < p2.first or p1.first > p2.first)
+        return p1.first < p2.first;
+    else
+    {
+        if(p1.second.size() < p2.second.size())
+            return 0;
+        else
+            return 1;
+    }
+
 }
 
 int main()
@@ -46,38 +55,42 @@ int main()
         res.push_back(make_pair("", arr[i].second));
     }
 
+    if (arr.size() > 1)
+        while (arr.size() > 1)
+        {
+            int a = arr[0].first;
+            string aa = arr[0].second;
+            int b = arr[1].first;
+            string bb = arr[1].second;
 
-    while (arr.size() > 1)
+            for (int i = 0; i < aa.size(); i++)
+                for (int j = 0; j < res.size(); j++)
+                    if (res[j].second[0] == aa[i])
+                    {
+                        if (a > b) res[j].first += "1";
+                        else res[j].first += "0";
+                        break;
+                    }
+
+            for (int i = 0; i < bb.size(); i++)
+                for (int j = 0; j < res.size(); j++)
+                    if (res[j].second[0] == bb[i])
+                    {
+                        if (a > b) res[j].first += "0";
+                        else res[j].first += "1";
+                        break;
+                    }
+
+            arr[1].first += arr[0].first;
+            arr[1].second += arr[0].second;
+
+            arr.erase(arr.begin());
+
+            sort(arr.begin(), arr.end(), cmp);
+        }
+    else
     {
-        int a = arr[0].first;
-        string aa = arr[0].second;
-        int b = arr[1].first;
-        string bb = arr[1].second;
-
-        for (int i = 0; i < aa.size(); i++)
-            for (int j = 0; j < res.size(); j++)
-                if (res[j].second[0] == aa[i])
-                {
-                    if (a > b) res[j].first += "1";
-                    else res[j].first += "0";
-                    break;
-                }
-
-        for (int i = 0; i < bb.size(); i++)
-            for (int j = 0; j < res.size(); j++)
-                if (res[j].second[0] == bb[i])
-                {
-                    if (a > b) res[j].first += "0";
-                    else res[j].first += "1";
-                    break;
-                }
-
-        arr[1].first += arr[0].first;
-        arr[1].second += arr[0].second;
-
-        arr.erase(arr.begin());
-
-        sort(arr.begin(), arr.end(), cmp);
+        res[0].first = "1";
     }
     for (int i = 0; i < res.size(); i++)
     {
