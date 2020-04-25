@@ -104,13 +104,11 @@ int main()
             sort(arr.begin(), arr.end(), cmp);
         }
     else
-    {
         res[0].first = "1";
-    }
+        
     for (int i = 0; i < res.size(); i++)
-    {
         cout << res[i].first << ", " << res[i].second << endl;
-    }
+        
     string code = "";
     for (int i = 0; i < str.size(); i++)
         for (int j = 0; j < res.size(); j++)
@@ -121,7 +119,6 @@ int main()
             }
 
     cout << endl << "Закодированный текст: " << code << endl;
-
 
     return 0;
 }
