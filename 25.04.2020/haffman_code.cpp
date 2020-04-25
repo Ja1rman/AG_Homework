@@ -45,10 +45,7 @@ int main()
     {
         res.push_back(make_pair("", arr[i].second));
     }
-    for (int i = 0; i < res.size(); i++)
-    {
-        cout << res[i].first << ", " << res[i].second << endl;
-    }
+
 
     while (arr.size() > 1)
     {
@@ -82,6 +79,9 @@ int main()
 
         sort(arr.begin(), arr.end(), cmp);
     }
-
+    for (int i = 0; i < res.size(); i++)
+    {
+        cout << res[i].first << ", " << res[i].second << endl;
+    }
     return 0;
 }
