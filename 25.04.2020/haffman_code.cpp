@@ -46,7 +46,7 @@ int main()
     }
 
     sort(arr.begin(), arr.end(), cmp);
-//norm
+
     vector <pair<string, string> > res;
 
     for (int i = 0; i < arr.size(); i++)
