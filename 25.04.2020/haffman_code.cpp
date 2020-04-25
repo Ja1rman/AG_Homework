@@ -8,12 +8,11 @@ bool cmp (pair<int, string> p1, pair<int, string> p2)
         return p1.first < p2.first;
     else
     {
-        if(p1.second.size() < p2.second.size())
+        if (p1.second.size() < p2.second.size())
             return 0;
         else
             return 1;
     }
-
 }
 
 int main()
@@ -67,8 +66,16 @@ int main()
                 for (int j = 0; j < res.size(); j++)
                     if (res[j].second[0] == aa[i])
                     {
-                        if (a > b) res[j].first += "1";
-                        else res[j].first += "0";
+                        if (a > b)
+                        {
+                            string temp = "1" + res[j].first;
+                            res[j].first = temp;
+                        }
+                        else
+                        {
+                            string temp = "0" + res[j].first;
+                            res[j].first = temp;
+                        }
                         break;
                     }
 
@@ -76,8 +83,16 @@ int main()
                 for (int j = 0; j < res.size(); j++)
                     if (res[j].second[0] == bb[i])
                     {
-                        if (a > b) res[j].first += "0";
-                        else res[j].first += "1";
+                        if (a > b)
+                        {
+                            string temp = "0" + res[j].first;
+                            res[j].first = temp;
+                        }
+                        else
+                        {
+                            string temp = "1" + res[j].first;
+                            res[j].first = temp;
+                        }
                         break;
                     }
 
