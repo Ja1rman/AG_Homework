@@ -38,23 +38,18 @@ int main()
     }
 
     sort(arr.begin(), arr.end(), cmp);
-    //arr.erase(arr.begin(), arr.begin() + size);
-    for (int i = 0; i < arr.size(); i++)
-    {
-        cout << arr[i].first << ", " << arr[i].second << endl;
-    }
-
- /*   vector <pair<string, char> > res(size);
+//norm
+    vector <pair<string, string> > res;
 
     for (int i = 0; i < arr.size(); i++)
     {
-        res.push_back(make_pair("", arr[i].second[0]));
+        res.push_back(make_pair("", arr[i].second));
     }
     for (int i = 0; i < res.size(); i++)
     {
         cout << res[i].first << ", " << res[i].second << endl;
     }
-/*
+
     while (arr.size() > 1)
     {
         int a = arr[0].first;
@@ -64,19 +59,19 @@ int main()
 
         for (int i = 0; i < aa.size(); i++)
             for (int j = 0; j < res.size(); j++)
-                if (res[j].second == aa[i])
+                if (res[j].second[0] == aa[i])
                 {
-                    if (a > b) res[j].first += '1';
-                    else res[j].first += '0';
+                    if (a > b) res[j].first += "1";
+                    else res[j].first += "0";
                     break;
                 }
 
         for (int i = 0; i < bb.size(); i++)
             for (int j = 0; j < res.size(); j++)
-                if (res[j].second == bb[i])
+                if (res[j].second[0] == bb[i])
                 {
-                    if (a > b) res[j].first += '0';
-                    else res[j].first += '1';
+                    if (a > b) res[j].first += "0";
+                    else res[j].first += "1";
                     break;
                 }
 
@@ -87,6 +82,6 @@ int main()
 
         sort(arr.begin(), arr.end(), cmp);
     }
-*/
+
     return 0;
 }
