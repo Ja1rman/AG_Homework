@@ -57,7 +57,7 @@ def keys():
     return (e, n, d)
 
 def encryption(m, e, n):
-    c = ((m % n) ** e) % n
+    c = pow(m, e, n)
     return c
 
 def decryption(c, d, n):
