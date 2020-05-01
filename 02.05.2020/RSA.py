@@ -73,5 +73,5 @@ print('\nКлючи: e = ' + str(a[0]) + ' n = ' + str(a[1]) + ' d = ' + str (a[
 c = encryption(m, a[0], a[1])
 print('Зашифрованное сообщение: ' + str(c))
 
-m = decryption(c, a[2], a[1]) #долго
+m = decryption(c, a[2], a[1]) 
 print('Расшифрованное сообщение: ' + str(m))
