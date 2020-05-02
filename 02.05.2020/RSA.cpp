@@ -99,7 +99,7 @@ long long decryption(long long c, long long d, long long n)
 int main()
 {
     setlocale(LC_ALL, "rus");
-    cout << "Ââåäèòå øèôðóåìîå ñîîáùåíèå (÷èñëî)" << endl;
+    cout << "Ð’Ð²ÐµÐ´Ð¸Ñ‚Ðµ ÑˆÐ¸Ñ„Ñ€ÑƒÐµÐ¼Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ (Ñ‡Ð¸ÑÐ»Ð¾)" << endl;
     long long m;
     cin >> m;
 
@@ -107,13 +107,13 @@ int main()
     long long n = 0;
     long long d = 0;
     keys(&e, &n, &d);
-    cout << endl << "Êëþ÷è: e = " << e << " n = " << n << " d = " << d << endl;
+    cout << endl << "ÃŠÃ«Ã¾Ã·Ã¨: e = " << e << " n = " << n << " d = " << d << endl;
 
     long long c = encryption(m, e, n);
-    cout << "Çàøèôðîâàííîå ñîîáùåíèå: " << c << endl;
+    cout << "Ð—Ð°ÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << c << endl;
 
     m = decryption(c, d, n);
-    cout << "Ðàñøèôðîâàííîå ñîîáùåíèå: " << m;
+    cout << "Ð Ð°ÑÑˆÐ¸Ñ„Ñ€Ð¾Ð²Ð°Ð½Ð½Ð¾Ðµ ÑÐ¾Ð¾Ð±Ñ‰ÐµÐ½Ð¸Ðµ: " << m;
 
     return 0;
 }
